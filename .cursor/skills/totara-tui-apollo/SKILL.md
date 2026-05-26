@@ -7,7 +7,7 @@ description: Frontend-only Vue Apollo patterns for Totara TUI components. Use wh
 
 ## Scope
 
-Applies to **Totara TUI frontend code only** — Vue components, Apollo client usage, and cache policies in `client/component/`. Does **not** cover PHP resolvers, `webapi/ajax/` schema authoring, or page controllers. For backend GraphQL, use companion skills and [Totara GraphQL docs](https://totara.atlassian.net/wiki/spaces/DEV/pages/840663073).
+Applies to **Totara TUI frontend code only** — Vue Apollo usage in Vue components, and cache policies in `client/component/`.
 
 Totara uses **Vue Apollo + Apollo Client** for server state via GraphQL — not Pinia, not ad-hoc fetch.
 
@@ -144,7 +144,6 @@ When wiring a component to an existing persisted operation:
 - **Import:** `import op from '{frankenstyle}/graphql/{operation_name}'`
 - **Response mapping:** root field in `update:` / `computed` must match the operation's response shape (e.g. `data => data.local_todo_items.items`)
 - **Variables:** must match the persisted operation's declared arguments
-- **Operation missing?** Use `graphql-operations` + Totara backend docs — not this skill
 
 ## Common mistakes
 
@@ -166,25 +165,3 @@ When wiring a component to an existing persisted operation:
 ## Additional resources
 
 For full copy-paste examples (Ping.vue, mutation + refetchQueries, type policies), see [references/totara-patterns.md](references/totara-patterns.md).
-
-## Companion skills
-
-Install alongside this skill:
-
-```bash
-# Backend GraphQL operation/schema authoring (use instead of this skill for PHP/webapi work)
-npx skills add apollographql/skills --skill graphql-operations --skill graphql-schema -a cursor -y
-
-# Vue 3 patterns for TUI components (not Apollo-specific)
-npx skills add vuejs-ai/skills --skill vue-best-practices -a cursor -y
-```
-
-Skip `apollo-client` from apollographql/skills — it targets React, not `@vue/apollo-composable`.
-
-## Usage tip
-
-For reliability, prefix prompts with:
-
-```text
-Use totara-tui-apollo skill: add a mutation to update item title and refetch the list query.
-```
