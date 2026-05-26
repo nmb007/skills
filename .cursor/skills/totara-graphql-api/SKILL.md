@@ -1,11 +1,12 @@
 ---
 name: totara-graphql-api
-description: PHP backend development of GraphQL APIs in Totara: schema files (.graphqls),
-query/mutation/type/union resolvers, persisted queries (.graphql), middleware,
-pagination, formatters, and endpoint-type differences (ajax, external, mobile, dev).
-Use when writing or debugging GraphQL schema files, PHP resolver classes under
-webapi/resolver/, persisted .graphql queries, GraphQL middleware, or when asked about
-Totara GraphQL API structure, endpoint types, or best practices.
+description: >-
+  PHP backend development of GraphQL APIs in Totara: schema files (.graphqls),
+  query/mutation/type/union resolvers, persisted queries (.graphql), middleware,
+  pagination, formatters, and endpoint-type differences (ajax, external, mobile, dev).
+  Use when writing or debugging GraphQL schema files, PHP resolver classes under
+  webapi/resolver/, persisted .graphql queries, GraphQL middleware, or when asked about
+  Totara GraphQL API structure, endpoint types, or best practices.
 ---
 
 # Totara GraphQL API (Backend)
