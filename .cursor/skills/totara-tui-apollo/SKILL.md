@@ -9,6 +9,8 @@ description: Frontend-only Vue Apollo patterns for Totara TUI components. Use wh
 
 Applies to **Totara TUI frontend code only** — Vue Apollo usage in Vue components, and cache policies in `client/component/`.
 
+For new bundles, page SFCs, `tui.json`, build, and MVC wiring, use **`totara-tui-components`** first.
+
 Totara uses **Vue Apollo + Apollo Client** for server state via GraphQL — not Pinia, not ad-hoc fetch.
 
 Official references:
