@@ -36,6 +36,7 @@ class index extends \totara_mvc\controller {
             'someId' => 42,
         ];
 
+        // Vue's page component from TUI component
         return \totara_mvc\tui_view::create(
             'local_myplugin/pages/Ping',
             $additional_props
