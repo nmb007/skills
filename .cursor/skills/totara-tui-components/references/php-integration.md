@@ -67,15 +67,15 @@ PHP passes JSON on the placeholder element; Tui decodes it into **root component
 
 ---
 
-## Bundle loading and dependencies
+## Tui component loading and dependencies
 
 When a page uses a Tui component:
 
-1. Framework records the required bundle.
-2. Reads that bundle's `dependencies.json` (generated at build).
-3. Loads dependent bundles' JS/CSS in order before initializing the page component.
+1. Framework records the required Tui component.
+2. Reads that Tui component's `dependencies.json` (generated at build).
+3. Loads dependent Tui component's JS/CSS in order before initializing the page component.
 
-**tui.json** `"dependencies"` must list other Tui bundles you import statically.
+**tui.json** `"dependencies"` must list other Tui components you import statically.
 
 Also declare the corresponding **PHP plugin dependency** in your plugin's `version.php` / dependencies so install order is correct.
 
