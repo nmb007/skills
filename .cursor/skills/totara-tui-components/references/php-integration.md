@@ -2,7 +2,7 @@
 
 Sources:
 - [Integration with Totara Core](https://totara.atlassian.net/wiki/spaces/DEV/pages/121184986)
-- [Model-view-controller (MVC) pattern](https://totara.atlassian.net/wiki/spaces/DEV/pages/121184478)
+- [Model-view-controller (MVC) pattern](https://totara.atlassian.net/wiki/spaces/DEV/pages/121184478) — covers **both** Mustache views and Tui views; for Tui work, use only the `tui_view` parts below, not `totara_mvc\view` examples from that page.
 - [Quick-start guide: Creating your first component](https://totara.atlassian.net/wiki/spaces/DEV/pages/121184960)
 
 ---
@@ -92,9 +92,24 @@ Test operations via [developer GraphQL API](https://totara.atlassian.net/wiki/sp
 
 ---
 
-## Generic Mustache view (not Tui)
+## Mustache `view` — not for Tui components
 
-`totara_mvc\view` renders Mustache templates — use for legacy pages only. New feature UI should use `tui_view`.
+The [MVC wiki](https://totara.atlassian.net/wiki/spaces/DEV/pages/121184478) shows `return new \totara_mvc\view('my_plugin/show')` — that is **Mustache template rendering**, not Tui. Do not use this pattern when wiring a Vue page component.
+
+**Not relevant to Tui (Mustache only):**
+
+```php
+return new \totara_mvc\view('my_plugin/show');
+// or: new \totara_mvc\view('my_plugin/my_first_template', $template_data);
+```
+
+**Correct for a Tui page:**
+
+```php
+return \totara_mvc\tui_view::create('my_plugin/pages/MyPageComponent', $additional_props);
+```
+
+Controller setup from the wiki (`setup_context()`, `set_url()`, capabilities, layout) still applies to Tui controllers; only the **returned view type** differs.
 
 ---
 
