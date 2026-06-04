@@ -55,6 +55,8 @@ You may override individual SFC blocks:
 
 **Full replacement:** New `<template>` + `<script>` without extends replaces entire component definition (must supply template + strings; styles may still layer).
 
+**T19 breaking change — partial template overrides removed:** Totara 13–18 allowed overriding only the `<template>` block while inheriting the `<script>` block. This was removed in T19 with the Vue 3 upgrade. The reason: script and template are tightly coupled, so many upstream minor changes silently became breaking changes in themes. Overriding the entire component is now required, which makes the contract explicit.
+
 **Partial script extend:**
 
 ```vue
@@ -130,6 +132,18 @@ Theme authors may define **custom SFC blocks** via `build.config.js` + webpack r
 ## CSS class naming for new components
 
 If replacing a component entirely (new template + style + script), use a **non-`tui-`** class namespace to avoid collision with inherited styles.
+
+## CSS class naming for overridden components
+
+When making major changes to an existing component (significant template rewrite), prefix new classes with your theme name to avoid inheriting unintended styles from the parent component:
+
+```scss
+// Instead of reusing tui-button, use:
+.theme_mytheme-button { ... }
+.theme_mytheme-core_auth-login { ... }
+```
+
+This keeps your overridden component's styles isolated from upstream changes to the original class names.
 
 ---
 

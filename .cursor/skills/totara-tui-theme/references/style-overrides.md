@@ -73,7 +73,21 @@ Instead:
 
 Major customization: copy parent `totara.scss` and trim imports.
 
-**LESS vs SCSS:** SCSS is imperative — variables must be defined **before** use (unlike LESS).
+**LESS vs SCSS:** SCSS is imperative — variables must be defined **before** use (unlike LESS). This is why the server-side `totara.scss` entry point separates variable imports from style imports — loading variables after styles would have no effect on the already-evaluated styles.
+
+---
+
+## TUI SCSS variable load order (two-phase, implicit)
+
+In TUI there is no explicit entry point like `totara.scss` — the load order is handled implicitly:
+
+**Phase 1 — Variables only (in this order):**
+All SCSS variables defined in `_variables.scss` from TUI core → parent themes → your theme.
+
+**Phase 2 — Remaining code (in this order):**
+All remaining code from `_variables.scss` + `static.scss` from parent themes → your theme.
+
+This means your variable overrides in `_variables.scss` are evaluated before any styles run, so all inherited styles pick up your values correctly. No manual ordering is required — just place overrides in `_variables.scss`.
 
 ---
 
@@ -118,6 +132,16 @@ This skill does not document webpack/npm build internals.
 Root font size follows browser default (~16px). Use `rem-px(32)` helper where available.
 
 Totara 18 and earlier: root 10px; simple `rem` math.
+
+**Units:** Prefer `rem` over `px` wherever possible (border widths are a reasonable exception). `rem` scales with the user's root font size, improving accessibility.
+
+**Spacing:** Use the `gap()` helper rather than raw pixel values. One `gap()` unit equals 4px.
+
+```scss
+gap(1)  // 4px
+gap(2)  // 8px
+gap(4)  // 16px
+```
 
 ---
 

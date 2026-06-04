@@ -21,6 +21,25 @@ Does **not** cover:
 
 ---
 
+## When to create a custom theme
+
+Inspire (Totara 19+) already provides built-in customisation: logo, login page background, and theme branding colours via Theme Appearance settings.
+
+**Drawbacks of using the Custom CSS box in Theme Appearance instead of a proper theme:**
+
+- Cannot write SCSS (no variables, mixins, or nesting)
+- Not version controlled
+- Always loads last in the cascade — cannot influence earlier layers
+
+**Create a custom theme when:**
+
+- You need more than a couple of lines of custom CSS
+- You need SCSS variables, mixins, or structured overrides
+- You want to override TUI components, Mustache templates, or renderers
+- Changes need to be version controlled and deployed consistently
+
+---
+
 ## Version-specific parent themes
 
 | Totara version | Recommended `$THEME->parents` |
