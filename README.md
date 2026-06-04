@@ -38,6 +38,7 @@ Use {skill-name} skill: <your task>
 
 | Skill | Description |
 |-------|-------------|
+| totara-plugin-structure | Totara plugin layout — server/client roots, frankenstyle, db/, classes/, v1/v2 src/, scaffolding workflow |
 | totara-tui-components | TUI bundles and Vue SFCs — scaffold, tui.json, build, MVC, structure, testing |
 | totara-tui-theme | Totara child/custom themes — inheritance, CSS variables, SCSS, TUI overrides, Mustache, renderers, Theme Appearance |
 | totara-tui-apollo | Totara TUI frontend with Apollo — Vue Apollo queries, mutations, cache, and GraphQL imports |
