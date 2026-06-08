@@ -42,6 +42,12 @@ When create and update operations require different nullability (e.g. all fields
 
 ---
 
+## Built-in reference types
+
+Reuse existing Totara reference inputs (e.g. `core_user_user_reference`) before defining your own — core already provides resolvers and handling for them.
+
+---
+
 ## Result types
 
 **Always** wrap query and mutation results in a dedicated result type. Never return a bare array or the entity type directly.
@@ -136,6 +142,12 @@ Limitation: all endpoints share one execution context. Avoid combining endpoints
 | Multiple component-level queries | Component isolation is more important; use pagination to limit data |
 
 Test with realistic data volumes. Use Xstate when complex loading orchestration is needed.
+
+---
+
+## Resolvers
+
+Keep query/mutation resolvers thin: orchestrate in the resolver, put business logic in testable service classes.
 
 ---
 
