@@ -44,6 +44,7 @@ Use {skill-name} skill: <your task>
 | totara-tui-apollo | Totara TUI frontend with Apollo — Vue Apollo queries, mutations, cache, and GraphQL imports |
 | totara-orm | Totara ORM PHP — entities, mandatory entity models, repositories, relationships, filters, query builder, paginator |
 | totara-graphql-api | Totara GraphQL PHP backend — schema, resolvers, persisted queries, middleware, endpoints |
+| totara-phpunit | Totara PHPUnit — setup, running tests (single/parallel/suite/filter), adding test cases, naming conventions |
 
 ## Adding a skill
 
