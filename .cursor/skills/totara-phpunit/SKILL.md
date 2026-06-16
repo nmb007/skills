@@ -4,8 +4,8 @@ description: >-
   PHPUnit test setup, execution commands, and test authoring conventions for
   Totara. Use when writing PHPUnit test cases, creating _test.php files,
   running phpunit.php commands, setting up parallel test runs, filtering tests,
-  naming test classes with frankenstyle prefix, or asking about how to add or
-  run tests in Totara.
+  naming test classes with frankenstyle prefix, tagging tests with PHPUnit
+  groups, or asking about how to add or run tests in Totara.
 ---
 
 # Totara PHPUnit
@@ -42,6 +42,9 @@ php test/phpunit/phpunit.php run core_user_userdata_username_testcase user/tests
 
 # Run a single test, To run a single test within a test case using the filter argument.
 php test/phpunit/phpunit.php run --filter test_export user/tests/userdata_username_test.php
+
+# Run tests by PHPUnit group (see "Test groups" below)
+php test/phpunit/phpunit.php run --group local_todo
 ```
 
 ---
@@ -84,3 +87,32 @@ class totara_cohort_enrol_test extends \core_phpunit\testcase {
     }
 }
 ```
+
+---
+
+## Test groups
+
+Tag test classes (or methods) with a PHPUnit group so they can be run selectively via `--group`. Use the component frankenstyle name (e.g. `local_todo`, `totara_competency`).
+
+**Do not use docblock annotations** such as `@group` — PHPUnit 11 deprecates metadata in doc-comments and PHPUnit 12 will remove support. Totara runs PHPUnit 11; docblock `@group` triggers `PHPUnit Deprecations` and `OK, but there were issues!` even when all tests pass.
+
+**Use PHP attributes instead:**
+
+```php
+use PHPUnit\Framework\Attributes\Group;
+
+#[Group('local_todo')]
+class local_todo_webapi_todo_items_test extends \core_phpunit\testcase {
+    public function test_create_todo_item(): void {
+        // test goes here
+    }
+}
+```
+
+To inspect PHPUnit deprecation details (hidden by default in Totara's `phpunit.xml`):
+
+```bash
+php test/phpunit/phpunit.php run --testsuite="local_todo_testsuite" --display-phpunit-deprecations
+```
+
+Note: many existing Totara core tests still use `@group` in docblocks. When writing **new** tests, always use `#[Group(...)]`.
