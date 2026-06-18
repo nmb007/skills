@@ -172,9 +172,8 @@ Docker + mutagen (`totara-docker-dev` on macOS): prefix with `t` — e.g. `tnpm 
 
 ## When stuck
 
-1. Find a similar bundle under `client/component/` and mirror its `tui.json`, page, and controller pattern.
-2. Confirm `tui-build-watch` is running and development mode is on (`totara_tui` settings).
-3. Check `client/component/{name}/build/` updated after save.
-4. For PHP page blank/wrong component — verify `tui_view::create()` path matches SFC import path.
-5. For cross-bundle import errors — add `dependencies` in `tui.json` and matching PHP plugin dependency.
-6. After backend GraphQL schema changes — purge Totara caches in dev; see totara-graphql-api skill.
+1. Confirm `tui-build-watch` is running and development mode is on (`totara_tui` settings).
+2. Check `client/component/{name}/build/` updated after save.
+3. For PHP page blank/wrong component — verify `tui_view::create()` path matches SFC import path.
+4. For cross-bundle import errors — add `dependencies` in `tui.json` and matching PHP plugin dependency.
+5. After backend GraphQL schema changes — purge Totara caches in dev; see totara-graphql-api skill.
