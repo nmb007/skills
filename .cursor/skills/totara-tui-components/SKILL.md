@@ -62,9 +62,9 @@ Import map example: `totara_catalog/explore/ExplorePage` → `totara_catalog/src
 - [ ] 1. config.php totara_tui dev settings + npm ci (see build reference)
 - [ ] 2. npm run tui-init {frankenstyle} {vendor}
 - [ ] 3. npm run tui-build-watch (restart watch after adding a new bundle)
-- [ ] 4. Add page SFC (PascalCase) under src/pages/ or v2 feature folder
+- [ ] 4. Add page SFC as defined in v2 structure in the relevant feature folder
 - [ ] 5. Add presentational / container child components as needed
-- [ ] 6. PHP: controller + tui_view::create('{frankenstyle}/pages/MyPage', $props)
+- [ ] 6. PHP: controller + tui_view::create('{frankenstyle}/explore/ExplorePage', $props)
 - [ ] 7. Add tui.json "dependencies" if statically importing another bundle
 - [ ] 8. If server data needed → totara-graphql-api + totara-tui-apollo (no inline fetch/gql)
 - [ ] 9. Add Jest spec next to component (see testing reference)
@@ -85,7 +85,7 @@ For end-to-end GraphQL + Apollo wiring, use totara-graphql-api and the totara-tu
 7. **No inline `gql` or raw `fetch('/graphql')`** for Totara data — use persisted imports + Vue Apollo (`totara-tui-apollo`) skill.
 8. **When using Apollo**, prefer `v-if="dataField"` over `v-if="$apollo.loading"` on main content (refetch flicker).
 9. **GraphQL is the server channel for Tui** — not legacy AJAX scripts (see php-integration reference).
-10. **New features in Totara 19+** — prefer v2 feature-based layout under `src/{feature}/`.
+10. **New features in Totara 19+** — should ALWAYS use v2 feature-based layout under `src/{feature}/`.
 
 ---
 
@@ -94,8 +94,8 @@ For end-to-end GraphQL + Apollo wiring, use totara-graphql-api and the totara-tu
 | Import | Resolves to |
 |--------|-------------|
 | `tui/components/buttons/Button` | Core Tui bundle (`client/component/tui/...`) |
-| `local_foo/components/bar/Baz` | Same bundle's `src/components/bar/Baz.vue` |
-| `local_foo/pages/MyPage` | Same bundle's page SFC |
+| `local_foo/explore/filtering/FilterBar` | Same bundle's `src/explore/filtering/FilterBar.vue` |
+| `local_foo/explore/ExplorePage` | Same bundle's page SFC |
 | `totara_webapi/graphql/status_nosession` | Persisted query (Vue Apollo — see `totara-tui-apollo`) skill |
 
 Module resolution is global per loaded bundle — see [component-structure.md](references/component-structure.md).
@@ -106,8 +106,8 @@ Module resolution is global per loaded bundle — see [component-structure.md](r
 
 | Role | Purpose | Typical path |
 |------|---------|--------------|
-| **Page** | PHP entry via `tui_view`; layout + wiring | `src/pages/` or `src/{feature}/FooPage.vue` |
-| **Presentational** | Reusable UI, limited logic | `src/components/{feature}/` |
+| **Page** | PHP entry via `tui_view`; layout + wiring | `src/{feature}/FooPage.vue` |
+| **Presentational** | Reusable UI, limited logic | `src/{feature}/filtering/FilterBar.vue` |
 | **Container** | Composes children + local state | Same as presentational, larger scope |
 | **Renderless** | State/behavior only; scoped slot for markup | e.g. `tui/.../form/Upload.vue` |
 

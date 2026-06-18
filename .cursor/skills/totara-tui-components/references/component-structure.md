@@ -103,7 +103,7 @@ Goals:
 
 **Single-feature plugins** (e.g. perform element, block): omit feature subfolder — place contents directly under `src/`.
 
-v1 and v2 may **coexist** in one bundle during migration; new work should use v2.
+v1 and v2 may **coexist** in one bundle during migration; new work or bundle should ALWAYS use v2.
 
 ---
 
