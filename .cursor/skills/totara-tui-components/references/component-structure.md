@@ -77,20 +77,26 @@ src/js/constants.js
 `tui.json` must sit **directly under the bundle root** (not inside `src/`).
 
 ```
-client/component/totara_catalog/
-  tui.json
-  src/
-    explore/               ← feature
-      ExplorePage.vue      ← page ends in Page
-      use_filtered_results.js
-      components/
-        FilterBar.vue
-    filtering/             ← feature
-      ...
+totara_catalog/
+    tui.json
+    upgrade.txt
+    src/
+        explore/
+            ExplorePage.vue
+            use_filtered_results.js
+            __tests__/
+            filtering/
+                FilterBar.vue
+                tree.js
+                __tests__/
+            ui/
+                HeaderButtons.vue
+                __tests__/
 ```
 
 Goals:
 
+- Under src/, we have a folder for each feature. Each feature folder will typically contain page components (which should end in Page to be easily identified) and high level composables implementing page logic. It should mostly just contain page components and their associated composables. Subdirectories should be added to group components and JS code comprising different parts of the feature.
 - Feature folders group pages, composables, and subcomponents
 - Easier Vue 3 composables; logic separated from presentational SFCs
 - Import `totara_catalog/explore/ExplorePage` → `src/explore/ExplorePage.vue`
