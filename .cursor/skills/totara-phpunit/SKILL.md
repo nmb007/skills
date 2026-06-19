@@ -20,8 +20,12 @@ In case of local development environment, all these commands should be run insid
 
 ```bash
 # First time setup for single thread run, this will install the database tables, prepare data root
+# init runs root `composer install --no-dev`, which removes dev dependencies, Always skip that step by setting TOTARA_INSTALL_SKIP_COMPOSER as 1 before running init
+export TOTARA_INSTALL_SKIP_COMPOSER=1
 php test/phpunit/phpunit.php init
+```
 
+```bash
 # When you want to remove all phpunit database tables and to remove its dataroot
 php test/phpunit/phpunit.php util --drop
 ```
@@ -67,7 +71,14 @@ php test/phpunit/phpunit.php parallel_run --processes=2
 2. Add test file, for example `local/mytest/tests/my_test.php` file with `local_my_testcase` class that extends `\core_phpunit\testcase`
 3. Add some test_*() methods
 4. If a tearDown() method is added, confirm it calls parent::tearDown() at the end
-5. Execute `php test/phpunit/phpunit.php init` to get the plugin tests included in main phpunit.xml configuration file
+5. Execute (with `TOTARA_INSTALL_SKIP_COMPOSER=1` to avoid stripping dev dependencies such as PHPCS):
+
+```bash
+export TOTARA_INSTALL_SKIP_COMPOSER=1
+php test/phpunit/phpunit.php init
+```
+
+   to get the plugin tests included in main phpunit.xml configuration file
 6. Execute your new test case `php test/phpunit/phpunit.php run local/mytest/tests/my_test.php`
 
 ---
