@@ -59,9 +59,9 @@ Import map example: `totara_catalog/explore/ExplorePage` → `totara_catalog/src
 ## Quick-start: new Tui bundle + page
 
 ```
-- [ ] 1. config.php totara_tui dev settings + npm ci (see build reference)
-- [ ] 2. npm run tui-init {frankenstyle} {vendor}
-- [ ] 3. npm run tui-build-watch (restart watch after adding a new bundle)
+- [ ] 1. config.php totara_tui dev settings + tnpm ci (see build reference)
+- [ ] 2. tnpm run tui-init {frankenstyle} {vendor}
+- [ ] 3. tnpm run tui-build-watch (restart watch after adding a new bundle)
 - [ ] 4. Add page SFC as defined in v2 structure in the relevant feature folder
 - [ ] 5. Add presentational / container child components as needed
 - [ ] 6. PHP: controller + tui_view::create('{frankenstyle}/explore/ExplorePage', $props)
@@ -136,18 +136,18 @@ See [Component structure](https://totara.atlassian.net/wiki/spaces/DEV/pages/121
 
 ---
 
-## npm commands
+## tnpm commands
 
 | Command | Purpose |
 |---------|---------|
-| `npm run tui-init {frankenstyle} {vendor}` | Scaffold new bundle + `tui.json` |
-| `npm run tui-build-dev` | Development builds (all or one component) |
-| `npm run tui-build-watch` | Rebuild on save (per changed bundle) |
-| `npm run tui-build-prod` | Production/minified builds |
-| `npm run tui-test` | Run Jest tests |
-| `npm run tui-test-watch` | Jest watch mode |
-| `npm run tui-style-fix -- client/component/{frankenstyle}/src` | Auto-fix ESLint, Stylelint, Prettier on a bundle |
-| `npm run tui-style-check -- client/component/{frankenstyle}/src` | Verify lint passes on a bundle |
+| `tnpm run tui-init {frankenstyle} {vendor}` | Scaffold new bundle + `tui.json` |
+| `tnpm run tui-build-dev` | Development builds (all or one component) |
+| `tnpm run tui-build-watch` | Rebuild on save (per changed bundle) |
+| `tnpm run tui-build-prod` | Production/minified builds |
+| `tnpm run tui-test` | Run Jest tests |
+| `tnpm run tui-test-watch` | Jest watch mode |
+| `tnpm run tui-style-fix -- client/component/{frankenstyle}/src` | Auto-fix ESLint, Stylelint, Prettier on a bundle |
+| `tnpm run tui-style-check -- client/component/{frankenstyle}/src` | Verify lint passes on a bundle |
 
 Docker + mutagen (`totara-docker-dev` on macOS): prefix with `t` — e.g. `tnpm run tui-build-watch`, `tnpm run tui-style-fix -- client/component/local_todo/src`.
 

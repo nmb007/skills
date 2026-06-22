@@ -93,7 +93,7 @@ This means your variable overrides in `_variables.scss` are evaluated before any
 
 ## Compiling Legacy SCSS
 
-From `server/` after `npm ci` or `npm install`:
+From `server/` after `tnpm ci` or `tnpm install`:
 
 ```bash
 npx grunt css
@@ -109,9 +109,9 @@ Re-run after **upgrades** — base theme SCSS may change.
 
 After editing `client/component/theme_{name}/src/**`:
 
-run `npm run tui-build-dev theme_mytheme` or `tui-build-watch`.
+run `tnpm run tui-build-dev theme_mytheme` or `tui-build-watch`.
 
-This skill does not document webpack/npm build internals.
+This skill does not document webpack/tnpm build internals.
 
 ---
 

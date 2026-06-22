@@ -13,8 +13,8 @@ Sources:
 Totara uses **Jest** with **Testing Library** (via `tui_test_utils/vtl`).
 
 ```bash
-npm run tui-test
-npm run tui-test-watch
+tnpm run tui-test
+tnpm run tui-test-watch
 ```
 
 ### File placement

@@ -40,7 +40,7 @@ Do **server foundation first**, then **client**, then **cross-cutting**. Within 
 - [ ] tui.json — register the bundle (component name matches frankenstyle)
 - [ ] src/ — v2 feature folders (Totara 19+); Page SFCs end in Page
 - [ ] One page SFC per PHP entry point; consumes props from the controller
-- [ ] npm run tui-init / tui-build-watch as needed — see totara-tui-components skill
+- [ ] tnpm run tui-init / tui-build-watch as needed — see totara-tui-components skill
 - [ ] Persisted .graphql queries + Apollo in .vue — see totara-tui-apollo skill
 ```
 

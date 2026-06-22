@@ -77,7 +77,7 @@ Modern branding requires **both** server and client:
 
 Client bundle needs `tui.json`, `src/global_styles/_variables.scss`, and optionally Theme Appearance Vue SFCs.
 
-Rebuild after client changes: `totara-tui-components` skill (`npm run tui-build-dev theme_mytheme`).
+Rebuild after client changes: `totara-tui-components` skill (`tnpm run tui-build-dev theme_mytheme`).
 
 ---
 

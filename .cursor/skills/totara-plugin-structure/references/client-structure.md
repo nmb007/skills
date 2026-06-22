@@ -10,7 +10,7 @@ The frankenstyle name of the client bundle **must match** the server plugin (e.g
 |------|---------|
 | `tui.json` | Registers and describes the bundle with Tui (required) |
 | `src/` | Vue and JS source code |
-| `build/` | Compiled output from `npm run tui-build` do not edit manually |
+| `build/` | Compiled output from `tnpm run tui-build` do not edit manually |
 | `upgrade.txt` | Append-only log of client-side breaking changes |
 
 ---

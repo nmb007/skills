@@ -51,7 +51,7 @@ Not a substitute for shipping default variables in the theme plugin.
 - `scss/totara.scss` imports parent then child `theme/variables` then `theme/styles`
 - All **variables** imports before all **styles** imports
 
-**Compile:** `npm ci` in `server/`, then `npx grunt css` (from `server/` or theme directory).
+**Compile:** `tnpm ci` in `server/`, then `tgrunt css` (from `server/` or theme directory).
 
 See [style-overrides.md](style-overrides.md).
 

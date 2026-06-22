@@ -325,14 +325,14 @@ php server/totara/api/cli/prep_api_docs.php
 
 # Step 2: Node — generates HTML documentation from the schema files
 cd extensions/api_docs
-npm ci
-npm run build /path/to/dataroot/api
+tnpm ci
+tnpm run build /path/to/dataroot/api
 ```
 
 Single-environment shortcut:
 
 ```bash
-cd extensions/api_docs; npm ci; php ../../server/totara/api/cli/prep_api_docs.php -q | xargs node build
+cd extensions/api_docs; tnpm ci; php ../../server/totara/api/cli/prep_api_docs.php -q | xargs node build
 ```
 
 Output: `extensions/api_docs/build/spectaql/out.html` and `out.json`.

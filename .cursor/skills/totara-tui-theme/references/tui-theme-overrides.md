@@ -36,7 +36,7 @@ client/component/theme_mytheme/
     └── css_variables.json    # after build, if theme:var comments present
 ```
 
-**Rebuild** after src changes: `totara-tui-components` skill (`npm run tui-build-dev theme_mytheme`).
+**Rebuild** after src changes: `totara-tui-components` skill (`tnpm run tui-build-dev theme_mytheme`).
 
 ---
 

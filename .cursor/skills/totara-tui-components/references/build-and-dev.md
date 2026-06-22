@@ -28,15 +28,15 @@ Never leave development mode enabled on production — slow loads and non-minifi
 ## Initial setup
 
 ```bash
-npm ci
-npm run tui-build    # production + development builds (both committed at release)
+tnpm ci
+tnpm run tui-build    # production + development builds (both committed at release)
 ```
 
 For day-to-day component work, development builds + watch are enough:
 
 ```bash
-npm run tui-build-dev
-npm run tui-build-watch
+tnpm run tui-build-dev
+tnpm run tui-build-watch
 ```
 
 Check `package.json` `engines.node` for minimum Node version (LTS recommended).
@@ -58,21 +58,19 @@ Each Tui bundle gets **four variants**: production/development × legacy/modern 
 
 ## Watch mode
 
-`npm run tui-build-watch` stays running and rebuilds **only the bundle you changed** on save — much faster than full `tui-build-dev`.
+`tnpm run tui-build-watch` stays running and rebuilds **only the bundle you changed** on save — much faster than full `tui-build-dev`.
 
-**After `npm run tui-init`** for a new bundle, **restart** watch so it picks up the new component.
+**After `tnpm run tui-init`** for a new bundle, **restart** watch so it picks up the new component.
 
 Single-bundle build:
 
 ```bash
-npm run tui-build-dev local_myplugin
+tnpm run tui-build-dev local_myplugin
 ```
 
 ---
 
 ## Docker / mutagen
-
-With `totara-docker-dev` + mutagen (common on macOS), run npm **inside** the container using `tnpm` command:
 
 ```bash
 tnpm run tui-build-watch
@@ -121,4 +119,4 @@ Tui uses ESLint (JavaScript) and Stylelint (SCSS/CSS). Run project lint scripts 
 
 ## Legacy assets (not Tui)
 
-Learn/Legacy theme CSS and AMD still have separate build steps — see configuring Totara for development. Do not confuse with `npm run tui-*` commands.
+Learn/Legacy theme CSS and AMD still have separate build steps — see configuring Totara for development. Do not confuse with `tnpm run tui-*` commands.
