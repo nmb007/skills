@@ -68,9 +68,12 @@ Import map example: `totara_catalog/explore/ExplorePage` → `totara_catalog/src
 - [ ] 7. Add tui.json "dependencies" if statically importing another bundle
 - [ ] 8. If server data needed → totara-graphql-api + totara-tui-apollo (no inline fetch/gql)
 - [ ] 9. Add Jest spec next to component (see testing reference)
+- [ ] 10. Lint changed bundle before finishing (see lint workflow below)
 ```
 
 For end-to-end GraphQL + Apollo wiring, use totara-graphql-api and the totara-tui-apollo skill.
+
+After any edit under `client/component/{frankenstyle}/src/**`, run the **TUI lint workflow** in the project's `AGENTS.md` (`tui-style-fix` then `tui-style-check` on the affected bundle). Do not mark TUI work complete until lint passes.
 
 ---
 
@@ -143,8 +146,12 @@ See [Component structure](https://totara.atlassian.net/wiki/spaces/DEV/pages/121
 | `npm run tui-build-prod` | Production/minified builds |
 | `npm run tui-test` | Run Jest tests |
 | `npm run tui-test-watch` | Jest watch mode |
+| `npm run tui-style-fix -- client/component/{frankenstyle}/src` | Auto-fix ESLint, Stylelint, Prettier on a bundle |
+| `npm run tui-style-check -- client/component/{frankenstyle}/src` | Verify lint passes on a bundle |
 
-Docker + mutagen (`totara-docker-dev` on macOS): prefix with `t` — e.g. `tnpm run tui-build-watch`.
+Docker + mutagen (`totara-docker-dev` on macOS): prefix with `t` — e.g. `tnpm run tui-build-watch`, `tnpm run tui-style-fix -- client/component/local_todo/src`.
+
+Required lint workflow (verbatim commands, when to run): see **TUI lint workflow** in the project's `AGENTS.md`.
 
 ---
 
