@@ -1,11 +1,11 @@
 # ai-skills
 
-Custom [Cursor Agent Skills](https://cursor.com/docs) for project-specific workflows. Each skill is a directory with a `SKILL.md` and optional supporting files.
+Custom agent skills for project-specific workflows. Each skill is a directory with a `SKILL.md` and optional supporting files. The `skills/` layout is the location the [skills CLI](https://skills.sh/) discovers.
 
 ## Structure
 
 ```text
-.cursor/skills/
+skills/
 └── {skill-name}/
     ├── SKILL.md              # required
     └── references/           # optional
@@ -14,19 +14,19 @@ Custom [Cursor Agent Skills](https://cursor.com/docs) for project-specific workf
 
 ## Usage
 
-**Project scope** — copy or symlink the skills folder into your repo:
+Install the skills in this repo:
 
 ```bash
-cp -r .cursor/skills /path/to/your-project/.cursor/
+npx skills add nmb007/skills
 ```
 
-**Global scope** — copy individual skills to your user directory:
+Install one skill:
 
 ```bash
-cp -r .cursor/skills/{skill-name} ~/.cursor/skills/
+npx skills add nmb007/skills --skill totara-orm
 ```
 
-Cursor loads skills from `.cursor/skills/` (project) and `~/.cursor/skills/` (global).
+The CLI copies the chosen skills into your agent's skills directory (for Cursor, that is `.agents/skills/` in the project, or the user skills directory with `-g`).
 
 To invoke explicitly in chat:
 
@@ -48,7 +48,7 @@ Use {skill-name} skill: <your task>
 
 ## Adding a skill
 
-1. Create `.cursor/skills/{skill-name}/SKILL.md` with YAML frontmatter (`name`, `description`).
+1. Create `skills/{skill-name}/SKILL.md` with YAML frontmatter (`name`, `description`). The `name` must match the directory name.
 2. Add optional reference files alongside (keep `SKILL.md` under ~500 lines).
 3. Update the table above with a one-line summary and link.
 
